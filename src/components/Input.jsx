@@ -35,6 +35,7 @@ const Input = () => {
         "state_changed",
         (snapshot) => {},
         (error) => {
+          // todo: handle error
           // setErr(true);
         },
         () => {
@@ -53,6 +54,7 @@ const Input = () => {
         }
       );
     } else {
+      // add message
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
@@ -62,27 +64,28 @@ const Input = () => {
         }),
       });
     }
-
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-    await updateDoc(doc(db, "userChats", data.user.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-
+    try {
+      // update last message attribute
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [data.chatId + ".lastMessage"]: {
+          text,
+        },
+        [data.chatId + ".date"]: serverTimestamp(),
+      });
+      await updateDoc(doc(db, "userChats", data.user.uid), {
+        [data.chatId + ".lastMessage"]: {
+          text,
+        },
+        [data.chatId + ".date"]: serverTimestamp(),
+      });
+    } catch (err) {}
     setText("");
     setImg(null);
   };
 
   return (
-    <div className="input">
-      <form onSubmit={handleSend}>
+    <form onSubmit={handleSend}>
+      <div className="input">
         <input
           type="text"
           placeholder="Type something..."
@@ -102,8 +105,8 @@ const Input = () => {
           </label>
           <button type="submit">Send</button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

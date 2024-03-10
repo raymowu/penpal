@@ -1,8 +1,9 @@
 /*
  *  Chat window
+ *   bug: doesnt empty/reset on page load
  */
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Cam from "../img/cam.png";
 import Add from "../img/add.png";
 import More from "../img/more.png";

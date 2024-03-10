@@ -12,6 +12,7 @@ const Message = ({ message }) => {
 
   const ref = useRef();
 
+  // scroll down all the way when new message
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
