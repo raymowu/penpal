@@ -15,6 +15,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
+      window.location.reload();
     } catch (err) {
       setErr(true);
     }
