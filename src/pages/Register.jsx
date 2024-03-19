@@ -9,8 +9,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const displayName = e.target[0].value;
     const email = e.target[1].value;
@@ -20,17 +22,15 @@ const Register = () => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       // upload profile picture
-      const storageRef = ref(storage, displayName);
+      const date = new Date().getTime();
+      const storageRef = ref(storage, `${displayName + date}`);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
 
-      uploadTask.on(
-        (error) => {
-          setErr(true);
-        },
-        () => {
-          // 404 here 🤔
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+      await uploadBytesResumable(storageRef, file).then(() => {
+        // 404 here 🤔
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+          try {
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
@@ -45,11 +45,17 @@ const Register = () => {
             // conversations firebase
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
-          });
-        }
-      );
+          } catch (err) {
+            setErr(true);
+            setLoading(false);
+            console.log(err);
+          }
+        });
+      });
     } catch (err) {
       setErr(true);
+      setLoading(false);
+      console.log(err);
     }
   };
 
@@ -68,6 +74,7 @@ const Register = () => {
             <span>Add an avatar</span>
           </label>
           <button>Sign up</button>
+          {loading && "Uploading and compressing the image please wait..."}
           {err && <span>Something went wrong</span>}
         </form>
         <p>
