@@ -11,6 +11,7 @@ const Register = () => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -18,6 +19,12 @@ const Register = () => {
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0];
+    if (displayName.length === 0) {
+      alert("Please input all fields!");
+    }
+    if (password.length <= 6) {
+      alert("Password must be at least 6 characters!");
+    }
     // create user in firebase
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);

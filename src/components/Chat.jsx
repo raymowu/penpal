@@ -10,6 +10,8 @@ import More from "../img/more.png";
 import Messages from "./Messages";
 import Input from "./Input";
 import { ChatContext } from "../context/ChatContext";
+import Language from "../img/language.png";
+
 const Chat = () => {
   const { data } = useContext(ChatContext);
   const { dispatch } = useContext(ChatContext);
@@ -26,6 +28,7 @@ const Chat = () => {
         <span>{data.user?.displayName}</span>
         {Object.keys(data.user).length !== 0 && (
           <div className="chatIcons">
+            <img className="speechIcon" src={Language} />
             <select name="languages" onChange={changeLanguage} id="languages">
               <option value="en">English</option>
               <option value="es">Spanish</option>

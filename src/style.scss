@@ -228,6 +228,12 @@ $darkColor: #2f2d52;
           height: 24px;
           cursor: pointer;
         }
+
+        img.speechIcon {
+          width: 32px;
+          height: 32px;
+          cursor: default;
+        }
       }
 
       .messages {
