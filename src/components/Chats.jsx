@@ -32,8 +32,6 @@ const Chats = () => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
-  console.log(chats);
-
   return (
     <div className="chats">
       {/* map chats by converting chats to array [id, info, ...] sorted newest msg on top*/}

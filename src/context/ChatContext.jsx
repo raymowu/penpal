@@ -19,6 +19,13 @@ export const ChatContextProvider = ({ children }) => {
             currentUser.uid > action.payload.uid
               ? currentUser.uid + action.payload.uid
               : action.payload.uid + currentUser.uid,
+          language: "en",
+        };
+      case "CHANGE_LANGUAGE":
+        return {
+          user: state.user,
+          chatId: state.chatId,
+          language: action.payload,
         };
       default:
         return state;

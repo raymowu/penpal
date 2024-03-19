@@ -45,6 +45,7 @@ const Register = () => {
             // conversations firebase
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
+            window.location.reload();
           } catch (err) {
             setErr(true);
             setLoading(false);
@@ -65,9 +66,9 @@ const Register = () => {
         <span className="logo">Pen Pal App</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="display name" />
-          <input type="email" placeholder="email" />
-          <input type="password" placeholder="password" />
+          <input type="text" placeholder="Display name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
           <input style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={Add} alt="add avatar" />
