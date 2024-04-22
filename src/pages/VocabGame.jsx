@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import "../style.scss";
 
 const words = [
-  { english: 'hello', spanish: 'hola', french: 'bonjour', german: 'hallo', italian: 'ciao' },
-  { english: 'goodbye', spanish: 'adiós', french: 'au revoir', german: 'auf Wiedersehen', italian: 'arrivederci' },
-  { english: 'thank you', spanish: 'gracias', french: 'merci', german: 'danke', italian: 'grazie' },
-  { english: 'please', spanish: 'por favor', french: "s'il vous plaît", german: 'bitte', italian: 'per favore' },
-  { english: 'sorry', spanish: 'lo siento', french: 'désolé', german: 'es tut mir leid', italian: 'mi dispiace' },
-  { english: 'yes', spanish: 'sí', french: 'oui', german: 'ja', italian: 'sì' },
-  { english: 'no', spanish: 'no', french: 'non', german: 'nein', italian: 'no' },
-  { english: 'how are you?', spanish: '¿cómo estás?', french: 'comment ça va?', german: 'wie geht es dir?', italian: 'come stai?' },
-  { english: 'what time is it?', spanish: '¿qué hora es?', french: 'quelle heure est-il?', german: 'wie spät ist es?', italian: 'che ora è?' },
-  { english: 'where is the bathroom?', spanish: '¿dónde está el baño?', french: 'où sont les toilettes?', german: 'wo ist die Toilette?', italian: "dov'è il bagno?" },
+  { english: 'hello', spanish: 'hola', french: 'bonjour', german: 'hallo', italian: 'ciao', japanese: 'こんにちは', simplified_chinese: '你好', traditional_chinese: '你好' },
+  { english: 'goodbye', spanish: 'adiós', french: 'au revoir', german: 'auf Wiedersehen', italian: 'arrivederci', japanese: 'さようなら', simplified_chinese: '再见', traditional_chinese: '再見' },
+  { english: 'thank you', spanish: 'gracias', french: 'merci', german: 'danke', italian: 'grazie', japanese: 'ありがとう', simplified_chinese: '谢谢', traditional_chinese: '謝謝' },
+  { english: 'please', spanish: 'por favor', french: "s'il vous plaît", german: 'bitte', italian: 'per favore', japanese: 'お願いします', simplified_chinese: '请', traditional_chinese: '請' },
+  { english: 'sorry', spanish: 'lo siento', french: 'désolé', german: 'es tut mir leid', italian: 'mi dispiace', japanese: 'ごめんなさい', simplified_chinese: '对不起', traditional_chinese: '對不起' },
+  { english: 'yes', spanish: 'sí', french: 'oui', german: 'ja', italian: 'sì', japanese: 'はい', simplified_chinese: '是的', traditional_chinese: '是的' },
+  { english: 'no', spanish: 'no', french: 'non', german: 'nein', italian: 'no', japanese: 'いいえ', simplified_chinese: '不', traditional_chinese: '不' },
+  { english: 'how are you?', spanish: '¿cómo estás?', french: 'comment ça va?', german: 'wie geht es dir?', italian: 'come stai?', japanese: '元気ですか？', simplified_chinese: '你好吗？', traditional_chinese: '你好嗎？' },
+  { english: 'what time is it?', spanish: '¿qué hora es?', french: 'quelle heure est-il?', german: 'wie spät ist es?', italian: 'che ora è?', japanese: '今何時ですか？', simplified_chinese: '现在几点？', traditional_chinese: '現在幾點？' },
+  { english: 'where is the bathroom?', spanish: '¿dónde está el baño?', french: 'où sont les toilettes?', german: 'wo ist die Toilette?', italian: "dov'è il bagno?", japanese: 'トイレはどこですか？', simplified_chinese: '洗手间在哪里？', traditional_chinese: '洗手間在哪裡？' },
 ];
 
 const VocabGame = () => {
@@ -65,6 +65,9 @@ const VocabGame = () => {
               <option value="french">French</option>
               <option value="german">German</option>
               <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="simplified_chinese">Chinese (Simplified)</option>
+              <option value="traditional_chinese">Chinese (Traditional)</option>
             </select>
           </label>
         </div>
