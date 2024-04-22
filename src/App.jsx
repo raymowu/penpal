@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MainPage from "./pages/MainPage";
 import VocabGame from "./pages/VocabGame"; 
+import FAQPage from "./pages/FAQ"; 
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -28,6 +29,7 @@ function App() {
         <Route path="main" element={<ProtectedRoute><MainPage /></ProtectedRoute>} />
         <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="vocab-game" element={<ProtectedRoute><VocabGame /></ProtectedRoute>} />
+        <Route path="faq" element={<ProtectedRoute><FAQPage /></ProtectedRoute>} />
         {/* Redirects any non-defined route to the main route */}
         <Route path="*" element={!currentUser ? <Navigate to="/login" replace /> : <Navigate to="/main" replace />} />
       </Routes>
