@@ -21,12 +21,13 @@ const VocabGame = () => {
   const [answer, setAnswer] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('spanish'); // Default language is Spanish
+  const [sourceLanguage, setSourceLanguage] = useState('english'); // Default source language is English
+  const [targetLanguage, setTargetLanguage] = useState('spanish'); // Default target language is Spanish
 
   const currentWord = words[index];
 
   const checkAnswer = () => {
-    const correctTranslation = currentWord[selectedLanguage];
+    const correctTranslation = currentWord[targetLanguage];
     if (answer.toLowerCase() === correctTranslation.toLowerCase()) {
       setScore(score + 1);
     } else if (showCorrectAnswer) {
@@ -53,14 +54,28 @@ const VocabGame = () => {
     <div className="vocab-game">
       <div className="vocab-game-container">
         <div className="home-link">
-        <Link to="/">Home</Link>
+          <Link to="/">Home</Link>
         </div>
         <h1>Vocabulary Game</h1>
         <p className="score">Your score: {score}</p>
         <div className="language-dropdown">
           <label>
-            Select Language:
-            <select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)}>
+            Select Source Language:
+            <select value={sourceLanguage} onChange={(e) => setSourceLanguage(e.target.value)}>
+              <option value="english">English</option>
+              <option value="spanish">Spanish</option>
+              <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="simplified_chinese">Chinese (Simplified)</option>
+              <option value="traditional_chinese">Chinese (Traditional)</option>
+            </select>
+          </label>
+          <label>
+            Select Target Language:
+            <select value={targetLanguage} onChange={(e) => setTargetLanguage(e.target.value)}>
+              <option value="english">English</option>
               <option value="spanish">Spanish</option>
               <option value="french">French</option>
               <option value="german">German</option>
@@ -73,7 +88,7 @@ const VocabGame = () => {
         </div>
         {!showResult ? (
           <div className="word-container">
-            <h2>Translate: {currentWord.english}</h2>
+            <h2>Translate: {currentWord[sourceLanguage]}</h2>
             <input
               type="text"
               value={answer}
