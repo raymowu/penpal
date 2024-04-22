@@ -6,24 +6,35 @@ import { auth, db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
+import logo from '../img/logo.png'; // Adjust the path as needed
 
 const Register = () => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
+    if (!agreeToTerms) {
+      alert("Please agree to the terms and conditions.");
+      setLoading(false);
+      return;
+    }
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0];
     if (displayName.length === 0) {
       alert("Please input all fields!");
+      setLoading(false);
+      return;
     }
     if (password.length <= 6) {
       alert("Password must be at least 6 characters!");
+      setLoading(false);
+      return;
     }
     // create user in firebase
     try {
@@ -70,7 +81,7 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Pen Pal App</span>
+        <span className="logo"> <img src={logo} alt="PenPal Connect Logo"style={{ width: '50px', height: 'auto' }}></img>PenPal Connect</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Display name" />
@@ -81,6 +92,8 @@ const Register = () => {
             <img src={Add} alt="add avatar" />
             <span>Add an avatar</span>
           </label>
+            <input type="checkbox" checked={agreeToTerms} onChange={(e) => setAgreeToTerms(e.target.checked)} />
+            <p>I have received parental consent to use PenPals. </p>
           <button>Sign up</button>
           {loading && "Uploading and compressing the image please wait..."}
           {err && <span>Something went wrong</span>}

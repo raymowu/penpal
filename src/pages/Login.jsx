@@ -3,6 +3,7 @@ import "../style.scss";
 import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import logo from '../img/logo.png'; // Adjust the path as needed
 
 const Login = () => {
   const [err, setErr] = useState(false);
@@ -24,7 +25,7 @@ const Login = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Pen Pal App</span>
+      <span className="logo"> <img src={logo} alt="PenPal Connect Logo"style={{ width: '50px', height: 'auto' }}></img>PenPal Connect</span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="email" />

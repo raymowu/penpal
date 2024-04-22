@@ -7,6 +7,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import Globe from "../img/globe.webp";
+import logo from '../img/logo.png'; // Adjust the path as needed
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -14,8 +15,7 @@ const Navbar = () => {
     <div className="navbar">
       <span className="logo">
         {" "}
-        <img src={Globe} />
-        Pen Pal
+        <span className="logo"> <img src={logo} alt="PenPal Connect Logo"style={{ width: '20px', height: 'auto' }}></img>PenPal Connect</span>
       </span>
       <div className="user">
         <img src={currentUser.photoURL} alt="" />
