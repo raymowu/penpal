@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import VocabGame from "./pages/VocabGame";
 import "./global.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
@@ -29,6 +30,7 @@ function App() {
           />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="vocab-game" element={<ProtectedRoute><VocabGame /></ProtectedRoute>} />
         </Route>
       </Routes>
     </BrowserRouter>
