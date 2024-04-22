@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import "../style.scss";
 
 const words = [
-  { english: 'hello', spanish: 'hola', french: 'bonjour' },
-  { english: 'goodbye', spanish: 'adiós', french: 'au revoir' },
-  { english: 'thank you', spanish: 'gracias', french: 'merci' },
-  { english: 'please', spanish: 'por favor', french: "s'il vous plaît" },
-  { english: 'sorry', spanish: 'lo siento', french: 'désolé' },
-  { english: 'yes', spanish: 'sí', french: 'oui' },
-  { english: 'no', spanish: 'no', french: 'non' },
-  { english: 'how are you?', spanish: '¿cómo estás?', french: 'comment ça va?' },
-  { english: 'what time is it?', spanish: '¿qué hora es?', french: 'quelle heure est-il?' },
-  { english: 'where is the bathroom?', spanish: '¿dónde está el baño?', french: 'où sont les toilettes?' },
+  { english: 'hello', spanish: 'hola', french: 'bonjour', german: 'hallo', italian: 'ciao' },
+  { english: 'goodbye', spanish: 'adiós', french: 'au revoir', german: 'auf Wiedersehen', italian: 'arrivederci' },
+  { english: 'thank you', spanish: 'gracias', french: 'merci', german: 'danke', italian: 'grazie' },
+  { english: 'please', spanish: 'por favor', french: "s'il vous plaît", german: 'bitte', italian: 'per favore' },
+  { english: 'sorry', spanish: 'lo siento', french: 'désolé', german: 'es tut mir leid', italian: 'mi dispiace' },
+  { english: 'yes', spanish: 'sí', french: 'oui', german: 'ja', italian: 'sì' },
+  { english: 'no', spanish: 'no', french: 'non', german: 'nein', italian: 'no' },
+  { english: 'how are you?', spanish: '¿cómo estás?', french: 'comment ça va?', german: 'wie geht es dir?', italian: 'come stai?' },
+  { english: 'what time is it?', spanish: '¿qué hora es?', french: 'quelle heure est-il?', german: 'wie spät ist es?', italian: 'che ora è?' },
+  { english: 'where is the bathroom?', spanish: '¿dónde está el baño?', french: 'où sont les toilettes?', german: 'wo ist die Toilette?', italian: "dov'è il bagno?" },
 ];
 
 const VocabGame = () => {
@@ -59,6 +59,8 @@ const VocabGame = () => {
             <select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)}>
               <option value="spanish">Spanish</option>
               <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="italian">Italian</option>
             </select>
           </label>
         </div>
