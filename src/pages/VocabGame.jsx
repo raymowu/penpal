@@ -39,10 +39,15 @@ const VocabGame = () => {
     }
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+} 
+
   return (
     <div className="vocab-game">
         <div className="vocab-game-container">
         <h1>Vocabulary Game</h1>
+        <p>Your score: {score}</p>
         {!showResult ? (
             <div className="word-container">
             <h2>Translate: {currentWord.english}</h2>
@@ -58,6 +63,7 @@ const VocabGame = () => {
             <div className="result-container">
             <h2>Game Over!</h2>
             <p>Your score: {score}</p>
+            <button onClick={refreshPage}>Try Again?</button>
             </div>
         )}
         </div>
