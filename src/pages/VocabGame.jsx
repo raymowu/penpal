@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "../style.scss";
 
 const words = [
@@ -51,6 +52,9 @@ const VocabGame = () => {
   return (
     <div className="vocab-game">
       <div className="vocab-game-container">
+        <div className="home-link">
+        <Link to="/">Home</Link>
+        </div>
         <h1>Vocabulary Game</h1>
         <p className="score">Your score: {score}</p>
         <div className="language-dropdown">
