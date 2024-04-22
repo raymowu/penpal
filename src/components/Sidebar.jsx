@@ -12,7 +12,6 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Navbar />
-      <GameNavbar />
       <Search />
       <Chats />
     </div>
