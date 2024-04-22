@@ -357,41 +357,85 @@ $darkColor: #2f2d52;
 }
 
 body {
-  background-color: #a7bcff;
-}
-
-.vocab-game-container {
+  font-family: Arial, sans-serif;
+  background-color: #8da4f1;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ 
+ .vocab-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+ }
+ 
+ 
+ .vocab-game-container {
   max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #a7bcff;
-}
-
-.word-container,
-.result-container {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ 
+ h1 {
+  color: #333;
+  margin-top: 0;
+ }
+ 
+ 
+ .word-container {
   margin-top: 20px;
-}
-
-input[type='text'] {
-  padding: 8px;
+ }
+ 
+ 
+ input[type='text'] {
+  padding: 10px;
   margin-right: 10px;
-}
-
-button {
-  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 70%;
+  font-size: 16px;
+ }
+ 
+ 
+ button {
+  padding: 10px 20px;
   cursor: pointer;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
-}
-
-button:hover {
+  font-size: 16px;
+ }
+ 
+ 
+ button:hover {
   background-color: #0056b3;
-}
-
-h1,
-h2,
-p {
-  color: #333;
-}
+ }
+ 
+ 
+ .result-container {
+  margin-top: 20px;
+ }
+ 
+ 
+ .options {
+  margin-top: 20px;
+ }
+ 
+ 
+ label {
+  font-size: 16px;
+  margin-right: 10px;
+ }
+ 
+ 
+ input[type='checkbox'] {
+  margin-right: 5px;
+ }
+ 
