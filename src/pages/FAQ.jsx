@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import logo from '../img/logo.png';
 
 function FAQPage() {
@@ -6,6 +7,9 @@ function FAQPage() {
     <div className="faq-page">
       <img src={logo} alt="PenPal Connect Logo" className="logoImage" style={{ width: '50px', height: 'auto' }}/>
         <h1 className="title"> PenPal Connect FAQ</h1>
+      <div className="home-link">
+        <Link to="/">Home</Link>
+      </div>
       <div className="faq-item" style={{backgroundColor: '#ffffff', padding: '10px', borderRadius: '5px', border: '1px solid #ccc', marginBottom: '20px'}}>
         <div className="question" style={{fontWeight: 'bold', color: '#333'}}>What is PenPal Connect?</div>
         <div className="answer" style={{color: '#666'}}>PenPal Connect is a safe and fun penpal app designed specifically for kids to connect with other children around the world.</div>
