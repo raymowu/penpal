@@ -52,7 +52,7 @@ const VocabGame = () => {
     <div className="vocab-game">
       <div className="vocab-game-container">
         <h1>Vocabulary Game</h1>
-        <p>Your score: {score}</p>
+        <p className="score">Your score: {score}</p>
         <div className="language-dropdown">
           <label>
             Select Language:
@@ -70,16 +70,17 @@ const VocabGame = () => {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               placeholder="Enter translation"
+              className="answer-input"
             />
-            <button onClick={checkAnswer}>Submit</button>
+            <button onClick={checkAnswer} className="submit-button">Submit</button>
           </div>
         ) : (
           <div className="result-container">
             <h2>Game Over!</h2>
-            <button onClick={refreshPage}>Try Again?</button>
+            <button onClick={refreshPage} className="try-again-button">Try Again?</button>
           </div>
         )}
-        <div>
+        <div className="options">
           <label>
             Show Correct Answer:
             <input

@@ -361,49 +361,47 @@ body {
   background-color: #8da4f1;
   margin: 0;
   padding: 0;
- }
+}
  
- 
- .vocab-game {
+.vocab-game {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
- }
+}
  
- 
- .vocab-game-container {
+.vocab-game-container {
   max-width: 600px;
   width: 90%;
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
- }
- 
- 
- h1 {
+}
+
+h1 {
   color: #333;
   margin-top: 0;
- }
- 
- 
- .word-container {
+}
+
+.score {
+  margin-bottom: 20px;
+}
+
+.word-container {
   margin-top: 20px;
- }
- 
- 
- input[type='text'] {
+}
+
+.answer-input {
   padding: 10px;
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 70%;
   font-size: 16px;
- }
- 
- 
- button {
+}
+
+.submit-button {
   padding: 10px 20px;
   cursor: pointer;
   background-color: #007bff;
@@ -411,31 +409,35 @@ body {
   border: none;
   border-radius: 4px;
   font-size: 16px;
- }
- 
- 
- button:hover {
+}
+
+.submit-button:hover {
   background-color: #0056b3;
- }
- 
- 
- .result-container {
+}
+
+.result-container {
   margin-top: 20px;
- }
- 
- 
- .options {
+}
+
+.try-again-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.try-again-button:hover {
+  background-color: #0056b3;
+}
+
+.options {
   margin-top: 20px;
- }
- 
- 
- label {
+}
+
+.options label {
   font-size: 16px;
   margin-right: 10px;
- }
- 
- 
- input[type='checkbox'] {
-  margin-right: 5px;
- }
- 
+}
