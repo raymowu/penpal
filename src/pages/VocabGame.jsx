@@ -72,6 +72,8 @@ const VocabGame = () => {
               <option value="traditional_chinese">Chinese (Traditional)</option>
             </select>
           </label>
+        </div>
+        <div className="language-dropdown">
           <label>
             Select Target Language:
             <select value={targetLanguage} onChange={(e) => setTargetLanguage(e.target.value)}>
