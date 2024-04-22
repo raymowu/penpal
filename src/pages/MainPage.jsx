@@ -12,7 +12,7 @@ const MainPage = () => {
       </div>
       <div className="buttonContainer">
         <Link to="/home" className="navButton">Messages</Link>
-        <Link to="/games" className="navButton">Games</Link>
+        <Link to="/vocab-game" className="navButton">Games</Link>
         <Link to="/faq" className="navButton">FAQ</Link>
       </div>
     </div>
