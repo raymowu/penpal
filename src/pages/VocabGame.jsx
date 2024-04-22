@@ -19,12 +19,15 @@ const VocabGame = () => {
   const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState('');
   const [showResult, setShowResult] = useState(false);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false); // New state variable
 
   const currentWord = words[index];
 
   const checkAnswer = () => {
     if (answer.toLowerCase() === currentWord.spanish.toLowerCase()) {
       setScore(score + 1);
+    } else if (showCorrectAnswer) { // Show correct answer if option is turned on
+      alert(`Correct answer: ${currentWord.spanish}`);
     }
     nextWord();
   };
@@ -41,32 +44,42 @@ const VocabGame = () => {
 
   const refreshPage = () => {
     window.location.reload();
-} 
+  };
 
   return (
     <div className="vocab-game">
-        <div className="vocab-game-container">
+      <div className="vocab-game-container">
         <h1>Vocabulary Game</h1>
         <p>Your score: {score}</p>
         {!showResult ? (
-            <div className="word-container">
+          <div className="word-container">
             <h2>Translate: {currentWord.english}</h2>
             <input
-                type="text"
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-                placeholder="Enter translation"
+              type="text"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              placeholder="Enter translation"
             />
             <button onClick={checkAnswer}>Submit</button>
-            </div>
+          </div>
         ) : (
-            <div className="result-container">
+          <div className="result-container">
             <h2>Game Over!</h2>
             <p>Your score: {score}</p>
             <button onClick={refreshPage}>Try Again?</button>
-            </div>
+          </div>
         )}
+        <div>
+          <label>
+            Show Correct Answer:
+            <input
+              type="checkbox"
+              checked={showCorrectAnswer}
+              onChange={() => setShowCorrectAnswer(!showCorrectAnswer)}
+            />
+          </label>
         </div>
+      </div>
     </div>
   );
 };
