@@ -371,9 +371,10 @@ body {
 }
  
 .vocab-game-container {
+  position: relative;
   max-width: 600px;
   width: 90%;
-  background-color: #fff;
+  background-color: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -444,8 +445,8 @@ h1 {
 
 .home-link {
   position: absolute;
-  top: 230px;
-  right: 420px;
+  top: 30px;
+  right: 20px;
 }
 
 .home-link a {
